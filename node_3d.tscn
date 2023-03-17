@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk0qjrhc35wng"]
+
+[ext_resource type="PackedScene" uid="uid://ctte8koem7l02" path="res://Resources/Planes/White_plaster/white_plaster_02_4k.glb" id="1_cacrs"]
+[ext_resource type="PackedScene" uid="uid://b8ube5dealhqv" path="res://Resources/Objects/Cube/Cube.glb" id="2_jlgiv"]
+[ext_resource type="PackedScene" uid="uid://3bepwb614jkb" path="res://Resources/Objects/Tentacle_Barrel/personaje.glb" id="3_dh4q5"]
+[ext_resource type="Script" path="res://addons/control_camera3d/nodes/control_camera_3d.gd" id="3_rr680"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="white_plaster_02_4k" parent="." instance=ExtResource("1_cacrs")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -0.236814, 0, 0.432796)
+
+[node name="Cube" parent="." instance=ExtResource("2_jlgiv")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 100, 0)
+script = ExtResource("3_rr680")
+
+[node name="personaje" parent="." instance=ExtResource("3_dh4q5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 399.945, 242.058, 5.94)
