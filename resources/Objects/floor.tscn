@@ -15,6 +15,6 @@ top_level = true
 shape = SubResource("WorldBoundaryShape3D_fr7bl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_f8bi7")
 mesh = SubResource("PlaneMesh_hcurf")
