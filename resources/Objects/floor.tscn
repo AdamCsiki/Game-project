@@ -1,20 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ct1wilcxd2me"]
+[gd_scene load_steps=2 format=3 uid="uid://ct1wilcxd2me"]
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_fr7bl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0igrw"]
+albedo_color = Color(0.188235, 0.309804, 0.0627451, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8bi7"]
-albedo_color = Color(0.356863, 0.592157, 0.486275, 1)
+[node name="TheFloor" type="Node3D"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_hcurf"]
-size = Vector2(4, 4)
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_0igrw")
+use_collision = true
 
-[node name="TheFloor" type="StaticBody3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-top_level = true
-shape = SubResource("WorldBoundaryShape3D_fr7bl")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_f8bi7")
-mesh = SubResource("PlaneMesh_hcurf")
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(100, 1, 100)

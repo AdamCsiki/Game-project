@@ -10,7 +10,7 @@
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_j11d2"]
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_g8gog"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_qfi11"]
 
 [node name="World" type="WorldEnvironment"]
 environment = SubResource("Environment_novuj")
@@ -28,10 +28,9 @@ transform = Transform3D(1, 0, 0, 0, -0.570714, 0.821149, 0, -0.821149, -0.570714
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.44823, 10.4648)
 
 [node name="TheFloor" parent="." instance=ExtResource("4_j6a3g")]
-disable_mode = 1
 
 [node name="Minion" parent="." instance=ExtResource("5_umv0l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010002, 1.01053, 0.0499189)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010002, 1.82135, 0.0499189)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_g8gog")
+navigation_mesh = SubResource("NavigationMesh_qfi11")

@@ -3,7 +3,7 @@ extends WorldEnvironment
 @onready var the_cube = $TheCube
 
 func _physics_process(delta):
-	get_tree().call_group("units", "update_target_location", the_cube.global_transform.origin)
+	get_tree().call_group("Units", "update_target_location", the_cube.global_transform.origin)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
