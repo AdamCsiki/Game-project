@@ -2,15 +2,33 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 15
+var pos
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 # var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var gravity = 50.0
 
-var _boost_speed = 2
 
-var _velocity = Vector3.ZERO
-var _snap_vector = Vector3.DOWN
+@onready var camera = $SpringArm3D/Camera3D
+@onready var mesh = $MeshInstance3D
+
+var rayOrigin = Vector3()
+var rayEnd = Vector3()
+
+func look_at_mouse_point():
+	var space_state = get_world_3d().direct_space_state
+	var mouse_position = get_viewport().get_mouse_position();
+	
+	rayOrigin = camera.project_ray_origin(mouse_position)
+	rayEnd = rayOrigin + camera.project_ray_normal(mouse_position) * 2000 
+	
+	var intersection = space_state.intersect_ray(PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd))
+	
+	if not intersection.empty():
+		pos = intersection.position
+		camera.look_at(Vector3(pos.x, 0, pos.z), Vector3(0, 1, 0))
+		mesh.rotate_y(deg_to_rad(180))
+		
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -36,3 +54,5 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	look_at_mouse_point()
+	
