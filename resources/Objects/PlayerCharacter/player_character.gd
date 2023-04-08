@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 const SPEED = 5.0
+const CAMERA_ROTATION_SPEED = 0.5
 const JUMP_VELOCITY = 15
 var pos
 
@@ -24,9 +25,9 @@ func look_at_mouse_point():
 	
 	var intersection = space_state.intersect_ray(PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd))
 	
-	if not intersection.empty():
+	if not intersection.is_empty():
 		pos = intersection.position
-		camera.look_at(Vector3(pos.x, 0, pos.z), Vector3(0, 1, 0))
+		camera.look_at(Vector3(pos.x * CAMERA_ROTATION_SPEED, pos.y * CAMERA_ROTATION_SPEED, pos.z * CAMERA_ROTATION_SPEED), Vector3.UP)
 		mesh.rotate_y(deg_to_rad(180))
 		
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3ix23rybysxf"]
+
+[ext_resource type="PackedScene" uid="uid://buqw3pqev684l" path="res://resources/Objects/TowerBase/tower_base_crystal.glb" id="1_cl147"]
+
+[node name="tower_base_crystal" instance=ExtResource("1_cl147")]
+
+[node name="GunBase" parent="." index="1"]
+mesh = null
