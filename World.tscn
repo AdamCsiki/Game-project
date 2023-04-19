@@ -1,36 +1,32 @@
-[gd_scene load_steps=9 format=3 uid="uid://bk0qjrhc35wng"]
+[gd_scene load_steps=8 format=3 uid="uid://cje5dsomt2q2b"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_vxjab"]
-[ext_resource type="Script" path="res://free_look_camera.gd" id="2_hieod"]
+[ext_resource type="Script" path="res://FreeLookCamera.gd" id="2_570d8"]
 [ext_resource type="PackedScene" uid="uid://hfftbxppinif" path="res://resources/Objects/TheCube.tscn" id="3_f2vgx"]
-[ext_resource type="PackedScene" uid="uid://ct1wilcxd2me" path="res://resources/Objects/floor.tscn" id="4_j6a3g"]
+[ext_resource type="PackedScene" uid="uid://ct1wilcxd2me" path="res://resources/Objects/Map.tscn" id="4_j6a3g"]
 [ext_resource type="PackedScene" uid="uid://blyprgq3bdync" path="res://resources/Objects/Minion/Minion.tscn" id="5_umv0l"]
 
 [sub_resource type="Environment" id="Environment_novuj"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_j11d2"]
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_qfi11"]
-
 [node name="World" type="WorldEnvironment"]
 environment = SubResource("Environment_novuj")
 camera_attributes = SubResource("CameraAttributesPhysical_j11d2")
 script = ExtResource("1_vxjab")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="FreeLookCamera" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.42303, 4.91101, 0)
-script = ExtResource("2_hieod")
+visible = false
+script = ExtResource("2_570d8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.570714, 0.821149, 0, -0.821149, -0.570714, 0, 100, 0)
 
 [node name="TheCube" parent="." instance=ExtResource("3_f2vgx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.44823, 10.4648)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6643, 2.28131, 10.3353)
 
-[node name="TheFloor" parent="." instance=ExtResource("4_j6a3g")]
+[node name="Map" parent="." instance=ExtResource("4_j6a3g")]
 
 [node name="Minion" parent="." instance=ExtResource("5_umv0l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010002, 1.82135, 0.0499189)
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_qfi11")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.88508, 2.00284, 0.0499189)

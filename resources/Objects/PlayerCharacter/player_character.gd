@@ -13,20 +13,6 @@ var gravity = 50.0
 
 var rayOrigin = Vector3()
 var rayEnd = Vector3()
-
-#func look_at_mouse_point():
-#	var space_state = get_world_3d().direct_space_state
-#	var mouse_position = get_viewport().get_mouse_position();
-#
-#	rayOrigin = camera.project_ray_origin(mouse_position)
-#	rayEnd = rayOrigin + camera.project_ray_normal(mouse_position) * 2000 
-#
-#	var intersection = space_state.intersect_ray(PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd))
-#
-#	if not intersection.is_empty():
-#		pos = intersection.position
-#		camera.look_at(Vector3(pos.x, 0, pos.z), Vector3(0, 1, 0))
-#		mesh.rotate_y(deg_to_rad(180))
 		
 		
 func _input_event(curr_camera, event, curr_position, normal, shape_idx):
