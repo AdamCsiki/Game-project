@@ -1,8 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct1wilcxd2me"]
+[gd_scene load_steps=10 format=3 uid="uid://ct1wilcxd2me"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_0k8lr"]
-vertices = PackedVector3Array(-10, 0.5, 0, -0.25, 0.5, 0, 0, 0.5, -0.25, 0, 0.5, -10, -10, 0.5, -10, 0, 0.5, -0.25, 0.25, 0.5, 0, 10, 0.5, 0, 10, 0.5, -10, 0, 0.5, -10, -0.25, 2, -0.25, -0.25, 2, 0.25, 0.25, 2, 0.25, 0.25, 2, -0.25, 0, 0.5, 10, 0, 0.5, 0.25, -0.25, 0.5, 0, -10, 0.5, 0, -10, 0.5, 10, 10, 0.5, 0, 0.25, 0.5, 0, 0, 0.5, 0.25, 0, 0.5, 10, 10, 0.5, 10)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(5, 9, 6), PackedInt32Array(6, 9, 7), PackedInt32Array(7, 9, 8), PackedInt32Array(13, 12, 10), PackedInt32Array(10, 12, 11), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(17, 14, 18), PackedInt32Array(20, 19, 21), PackedInt32Array(21, 19, 22), PackedInt32Array(22, 19, 23)]
 agent_radius = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0igrw"]
@@ -18,6 +16,13 @@ albedo_color = Color(0.376471, 0.45098, 0.231373, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_1kyy4"]
 material = SubResource("StandardMaterial3D_i3hft")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3hrcp"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1o3f0"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_os15h"]
+albedo_color = Color(0, 0, 0, 1)
+
 [node name="Map" type="Node3D"]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -26,23 +31,34 @@ navigation_mesh = SubResource("NavigationMesh_0k8lr")
 
 [node name="MapObjects" type="CSGCombiner3D" parent="NavigationRegion3D"]
 transform = Transform3D(0.01, 0, 0, 0, 1, 0, 0, 0, 0.01, 0, 0.0394857, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_0igrw")
 use_collision = true
 
 [node name="Box" type="CSGBox3D" parent="NavigationRegion3D/MapObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.275237, 0.985432, -0.118382)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.275237, 0.45413, 4.74642)
 material = SubResource("StandardMaterial3D_54ase")
 
 [node name="Box2" type="CSGBox3D" parent="NavigationRegion3D/MapObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.871196, 0.475508, -2.74992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28469, 0.45413, 7.2526)
 material = SubResource("StandardMaterial3D_54ase")
 
 [node name="Floor" type="StaticBody3D" parent="NavigationRegion3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor"]
 shape = SubResource("WorldBoundaryShape3D_xkixo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Floor/CollisionShape3D"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("PlaneMesh_1kyy4")
 skeleton = NodePath("../..")
+
+[node name="Path" type="StaticBody3D" parent="NavigationRegion3D"]
+collision_priority = 0.0
+physics_material_override = SubResource("PhysicsMaterial_3hrcp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Path"]
+transform = Transform3D(0.5, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 0.01, 0)
+mesh = SubResource("PlaneMesh_1o3f0")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ORMMaterial3D_os15h")

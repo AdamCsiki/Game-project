@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://blyprgq3bdync"]
+[gd_scene load_steps=5 format=3 uid="uid://blyprgq3bdync"]
 
 [ext_resource type="Script" path="res://resources/Objects/Minion/Minion.gd" id="1_6imn4"]
+[ext_resource type="PackedScene" uid="uid://bnhw640ro5aw2" path="res://resources/Objects/Spider/spider_model.tscn" id="2_k61rs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jqs14"]
+height = 2.92134
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a8bwf"]
 
@@ -11,9 +13,11 @@ slide_on_ceiling = false
 script = ExtResource("1_6imn4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 0.2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_jqs14")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
 mesh = SubResource("CapsuleMesh_a8bwf")
 skeleton = NodePath("../..")
 
@@ -21,3 +25,5 @@ skeleton = NodePath("../..")
 process_mode = 3
 process_priority = 1
 avoidance_enabled = true
+
+[node name="spider_model" parent="." instance=ExtResource("2_k61rs")]

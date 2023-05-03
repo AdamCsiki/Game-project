@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbr0dsglvcauw"]
+
+[ext_resource type="Script" path="res://resources/Objects/Turret/Turret.gd" id="1_fhf1m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ghgkg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dubht"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 0.5
+
+[sub_resource type="PrismMesh" id="PrismMesh_wf32j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emdod"]
+albedo_color = Color(0.792157, 0.556863, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e7j8e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6dgc"]
+albedo_color = Color(0.792157, 0.556863, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0p8t0"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 0.51
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0irba"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5731r"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 0.57
+metallic_specular = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_baejh"]
+
+[node name="Turret" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.23289, 0, 0)
+script = ExtResource("1_fhf1m")
+body_path = NodePath("Body")
+head_path = NodePath("Body/Head")
+target_path = NodePath("../Minion")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0772839, 0.731096, 0)
+mesh = SubResource("BoxMesh_ghgkg")
+surface_material_override/0 = SubResource("StandardMaterial3D_dubht")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999903, 0.0139622, 0, -0.0139622, 0.999903, 0.0845141, 1.72775, 0)
+mesh = SubResource("PrismMesh_wf32j")
+surface_material_override/0 = SubResource("StandardMaterial3D_emdod")
+
+[node name="Head" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 0.2, -1.49012e-08, 0, 0, 3, 0, 0.287477, -1.03082)
+mesh = SubResource("BoxMesh_e7j8e")
+surface_material_override/0 = SubResource("StandardMaterial3D_j6dgc")
+
+[node name="Heading" type="MeshInstance3D" parent="Body/Head"]
+transform = Transform3D(0.75, 0, 0, 0, -3.12924e-07, -3.75, 0, 0.5, -1.234e-08, 0, -0.148825, -0.111258)
+material_override = SubResource("StandardMaterial3D_0p8t0")
+mesh = SubResource("CylinderMesh_0irba")
+skeleton = NodePath("../..")
+
+[node name="Ammo" type="MeshInstance3D" parent="Body/Head"]
+transform = Transform3D(1.5, 0, 0, 0, 2, -0.000475705, 0, 0.00186181, 0.511, 0, 0.194914, 0.521309)
+material_overlay = SubResource("StandardMaterial3D_5731r")
+mesh = SubResource("CylinderMesh_baejh")
+skeleton = NodePath("../../..")
