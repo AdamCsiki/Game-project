@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dchc30c7lltsd"]
+
+[ext_resource type="Texture2D" uid="uid://bqcyvi81aqshl" path="res://assets/PNG/Default size/towerDefense_tile245.png" id="1_d1o56"]
+[ext_resource type="Script" path="res://Mobs/Soldier 1.gd" id="2_yjfmr"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d1o56")
+script = ExtResource("2_yjfmr")
+speed = 100
