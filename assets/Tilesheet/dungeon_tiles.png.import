@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcylyfuel5u7f"
-path="res://.godot/imported/Preview_KenneyNL.png-e7146fb9bb3f83c9c81366a3beca491a.ctex"
+uid="uid://byftfey0lm3xt"
+path="res://.godot/imported/dungeon_tiles.png-9509ecd0c5780b2b74b18190f416e162.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Preview_KenneyNL.png"
-dest_files=["res://.godot/imported/Preview_KenneyNL.png-e7146fb9bb3f83c9c81366a3beca491a.ctex"]
+source_file="res://assets/Tilesheet/dungeon_tiles.png"
+dest_files=["res://.godot/imported/dungeon_tiles.png-9509ecd0c5780b2b74b18190f416e162.ctex"]
 
 [params]
 

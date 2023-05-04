@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dchc30c7lltsd"]
+
+[ext_resource type="Texture2D" uid="uid://bqcyvi81aqshl" path="res://assets/PNG/Default size/towerDefense_tile245.png" id="1_ha168"]
+[ext_resource type="Script" path="res://Minions/Soldier 1.gd" id="2_80wtf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p8wi6"]
+radius = 15.0
+
+[node name="PathFollow2D" type="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ha168")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Minion"]]
+script = ExtResource("2_80wtf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_p8wi6")

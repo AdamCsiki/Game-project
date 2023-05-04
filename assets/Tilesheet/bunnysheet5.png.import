@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://18dy00getywk"
-path="res://.godot/imported/Preview.png-7e0606545b152defc0807c7e2e6bf83f.ctex"
+uid="uid://cx3ygiwutquv2"
+path="res://.godot/imported/bunnysheet5.png-35b57df0e1016ca4609b7ac789746183.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Preview.png"
-dest_files=["res://.godot/imported/Preview.png-7e0606545b152defc0807c7e2e6bf83f.ctex"]
+source_file="res://assets/Tilesheet/bunnysheet5.png"
+dest_files=["res://.godot/imported/bunnysheet5.png-35b57df0e1016ca4609b7ac789746183.ctex"]
 
 [params]
 

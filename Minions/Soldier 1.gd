@@ -1,6 +1,7 @@
-extends Sprite2D
+extends CharacterBody2D
 
-@export var speed = 1000
+@export var speed: int = 100
+@export var health: int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,3 +13,6 @@ func _process(delta):
 	get_parent().set_progress(get_parent().get_progress() + delta * speed)
 	if get_parent().get_progress_ratio() == 1:
 		queue_free()
+
+	if health <=0:
+		get_parent().queue_free()

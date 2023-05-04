@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4q5v70ladlxn"
-path="res://.godot/imported/towerDefense_vector.svg-eed0d3391ec52a52aacce68e891778e9.ctex"
+uid="uid://dht45a71u055y"
+path="res://.godot/imported/build_atlas.png-2e16d723c3fe680444ea7c85e941e780.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Vector/towerDefense_vector.svg"
-dest_files=["res://.godot/imported/towerDefense_vector.svg-eed0d3391ec52a52aacce68e891778e9.ctex"]
+source_file="res://assets/Tilesheet/build_atlas.png"
+dest_files=["res://.godot/imported/build_atlas.png-2e16d723c3fe680444ea7c85e941e780.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
