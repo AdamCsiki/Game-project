@@ -353,12 +353,76 @@ wait_time = 0.1
 [node name="TowersContainer" type="Node2D" parent="."]
 
 [node name="BasicTurret" parent="TowersContainer" instance=ExtResource("4_nw584")]
-position = Vector2(1453, 592)
-rotation = 2.27416
+position = Vector2(3922, 1386)
+rotation = 5.1016
+bulletDamage = 2
+bulletCount = 10
 
 [node name="BasicTurret2" parent="TowersContainer" instance=ExtResource("4_nw584")]
-position = Vector2(838, 659)
+position = Vector2(3320, 1543)
+rotation = -2.24973
+bulletDamage = 2
+bulletCount = 10
+
+[node name="BasicTurret3" parent="TowersContainer" instance=ExtResource("4_nw584")]
+position = Vector2(1576, 1168)
+rotation = -1.20253
+bulletDamage = 2
+bulletCount = 10
+
+[node name="BasicTurret4" parent="TowersContainer" instance=ExtResource("4_nw584")]
+position = Vector2(1972, 1176)
+rotation = -1.86925
+bulletDamage = 2
+bulletCount = 10
+
+[node name="BasicTurret5" parent="TowersContainer" instance=ExtResource("4_nw584")]
+position = Vector2(2287, 404)
+rotation = -2.99324
+bulletDamage = 2
+bulletCount = 10
+
+[node name="BasicTurret6" parent="TowersContainer" instance=ExtResource("4_nw584")]
+position = Vector2(2549, 399)
+rotation = -0.0506145
+bulletDamage = 2
+bulletCount = 10
+
+[node name="BasicTurret7" parent="TowersContainer" instance=ExtResource("4_nw584")]
+position = Vector2(2418, 530)
+rotation = 1.6249
+bulletDamage = 2
+bulletCount = 10
+
+[node name="BasicTurret8" parent="TowersContainer" instance=ExtResource("4_nw584")]
+position = Vector2(2415, 271)
 rotation = -0.888373
+bulletDamage = 2
+bulletCount = 10
+
+[node name="BasicTurret9" parent="TowersContainer" instance=ExtResource("4_nw584")]
+position = Vector2(1775, 654)
+rotation = -0.888373
+bulletDamage = 2
+bulletCount = 10
+
+[node name="BasicTurret10" parent="TowersContainer" instance=ExtResource("4_nw584")]
+position = Vector2(3438, 1422)
+rotation = -2.35445
+bulletDamage = 2
+bulletCount = 10
+
+[node name="BasicTurret11" parent="TowersContainer" instance=ExtResource("4_nw584")]
+position = Vector2(3248, 2070)
+rotation = 2.46266
+bulletDamage = 2
+bulletCount = 10
+
+[node name="BasicTurret12" parent="TowersContainer" instance=ExtResource("4_nw584")]
+position = Vector2(3955, 2072)
+rotation = 0.368264
+bulletDamage = 2
+bulletCount = 10
 
 [connection signal="timeout" from="MobSpawner/Timer" to="MobSpawner" method="_on_timer_timeout"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
