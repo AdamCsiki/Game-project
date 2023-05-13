@@ -29,11 +29,12 @@ func _on_area_2d_body_exited(body):
 #		print("Removed entry:", currTargets)
 
 func attack():
-	if len(currTargets) > 0 and get_node("BulletContainer").get_child_count() < bulletCount:
+	if len(currTargets) > 0 and get_parent().get_node("BulletContainer").get_child_count() < bulletCount:
 		var target = currTargets[0].get_parent()
 		var bullet = Bullet.instantiate()
 		
-		bullet.target = target
+		bullet.target_location = target.global_position
 		bullet.attackDamage = bulletDamage
-		get_node("BulletContainer").add_child(bullet)
+		bullet.rotation = rotation
+		get_parent().get_node("BulletContainer").add_child(bullet)
 		bullet.global_position = get_node("Marker2D").global_position

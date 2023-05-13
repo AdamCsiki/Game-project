@@ -1,16 +1,19 @@
 extends CharacterBody2D
 
-var target
-var Speed = 1000
+var target_location
+var speed = 1000
 var attackDamage
 
+#@onready var destination = (target_location - position) * 0.5 + position
+
 func _physics_process(delta):
-	if is_instance_valid(target):
-		velocity = global_position.direction_to(target.global_position) * Speed
-		
-		look_at(target.global_position)
-	
-	move_and_slide()
+	position += transform.x * speed * delta
+#	if is_instance_valid(target):
+#	velocity = global_position.direction_to(destination) * Speed
+#	print(destination)
+#	look_at(destination)
+#
+#	move_and_slide()
 
 
 func _on_area_2d_body_entered(body):

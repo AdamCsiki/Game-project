@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bug0fmaeclabu" path="res://Maps/StarterMap.tscn" id="1_aoqkw"]
 [ext_resource type="Script" path="res://scripts/WorldCamera.gd" id="2_gj4bp"]
-[ext_resource type="Theme" uid="uid://dg6nxt460xnyn" path="res://ButtonTheme.tres" id="3_4efx1"]
+[ext_resource type="Theme" uid="uid://noc4jact6sem" path="res://ButtonTheme.tres" id="3_4efx1"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ymjkr"]
 
