@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
+var target_type: String
 var target_location
-var speed = 1000
-var attackDamage
+var speed: int = 1000
+var attackDamage: int = 1
 
 #@onready var destination = (target_location - position) * 0.5 + position
 
@@ -17,8 +18,8 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if "Minion" in body.get_groups():
-		body.health -= attackDamage
+	if target_type in body.get_groups():
+		body.currentHealth -= attackDamage
 		queue_free()
 
 

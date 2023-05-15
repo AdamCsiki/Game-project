@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://5cx0mk1ydg2u"]
+
+[ext_resource type="Script" path="res://UI/LevelSelector.gd" id="1_s5v4g"]
+
+[node name="LevelSelector" type="CanvasLayer"]
+script = ExtResource("1_s5v4g")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -658.0
+offset_top = -722.0
+offset_right = 658.0
+offset_bottom = 722.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="SelectorLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 150
+text = "Select a level:"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 150
+text = " "
+horizontal_alignment = 1
+
+[node name="LevelButtons" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/LevelButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="TutorialButton" type="Button" parent="PanelContainer/VBoxContainer/LevelButtons/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "Tutorial"
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/VBoxContainer/LevelButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="DungeonButton" type="Button" parent="PanelContainer/VBoxContainer/LevelButtons/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "Dungeon"
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/VBoxContainer/LevelButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="BeachButton" type="Button" parent="PanelContainer/VBoxContainer/LevelButtons/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "Beach"
+
+[node name="LoadingLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.670588, 0.670588, 0.670588, 1)
+theme_override_font_sizes/font_size = 120
+text = "Loading..."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/LevelButtons/MarginContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/LevelButtons/MarginContainer2/DungeonButton" to="." method="_on_dungeon_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/LevelButtons/MarginContainer3/BeachButton" to="." method="_on_beach_button_pressed"]

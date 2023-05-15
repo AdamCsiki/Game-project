@@ -1,5 +1,7 @@
 extends Camera2D
 
+@export var lock: bool = true
+
 var _target_zoom: float = 1.0
 
 const MIN_ZOOM: float = 1.0
@@ -8,6 +10,8 @@ const ZOOM_INCREMENT: float = 0.1
 const ZOOM_RATE: float = 8.0
 
 func _input(event):
+	if lock:
+		return
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			position -= event.relative * (MAX_ZOOM - _target_zoom + 0.5) / 3.0

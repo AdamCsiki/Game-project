@@ -1,47 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://lo0joaad2yta"]
+[gd_scene load_steps=4 format=3 uid="uid://lo0joaad2yta"]
 
-[ext_resource type="PackedScene" uid="uid://bug0fmaeclabu" path="res://Maps/StarterMap.tscn" id="1_aoqkw"]
 [ext_resource type="Script" path="res://scripts/WorldCamera.gd" id="2_gj4bp"]
-[ext_resource type="Theme" uid="uid://noc4jact6sem" path="res://ButtonTheme.tres" id="3_4efx1"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_ymjkr"]
+[ext_resource type="PackedScene" uid="uid://5cx0mk1ydg2u" path="res://UI/LevelSelector.tscn" id="3_yjjss"]
+[ext_resource type="PackedScene" uid="uid://dl8fwfw3mkb35" path="res://UI/InGameControls.tscn" id="4_lgb5g"]
 
 [node name="World" type="Node2D"]
 position = Vector2(2, 1)
 
-[node name="TileMap" parent="." instance=ExtResource("1_aoqkw")]
-position = Vector2(-2, -1)
+[node name="InGameControls" parent="." instance=ExtResource("4_lgb5g")]
+visible = false
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="WorldCamera" type="Camera2D" parent="."]
 position = Vector2(2174, 1183)
 script = ExtResource("2_gj4bp")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 459.0
-offset_bottom = 157.0
-
-[node name="Unit1Button" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(150, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("3_4efx1")
-text = "Unit1"
-icon = SubResource("CanvasTexture_ymjkr")
-
-[node name="Unit2Button" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(150, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("3_4efx1")
-text = "Unit2
-"
-
-[node name="Unit3Button" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(150, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("3_4efx1")
-text = "Unit3"
+[node name="LevelSelector" parent="." instance=ExtResource("3_yjjss")]

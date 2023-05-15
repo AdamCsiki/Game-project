@@ -2,7 +2,7 @@ extends Button
 
 @export var EntityToSpawn: PackedScene = preload("res://Minions/Soldier 1.tscn")
 
-@onready var mapPath = get_parent().get_node("Path2D")
+@onready var mapPath = get_parent().get_node("MinionsPath")
 @onready var timer = get_node("Timer")
 
 var count = 0

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhv82j4g86uar"]
+[gd_scene load_steps=6 format=3 uid="uid://dhv82j4g86uar"]
 
 [ext_resource type="Texture2D" uid="uid://h7ukgyu3bbkg" path="res://assets/PNG/Default size/towerDefense_tile250.png" id="1_5pk7m"]
 [ext_resource type="Script" path="res://Turrets/BasicTurret.gd" id="1_qlewl"]
+[ext_resource type="Theme" uid="uid://brmqw862wpso6" path="res://Minions/healthbar.tres" id="3_8gkxl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi8sg"]
 size = Vector2(90, 90)
@@ -13,7 +14,7 @@ radius = 297.002
 
 [node name="BulletContainer" type="Node2D" parent="."]
 
-[node name="BasicTurret" type="StaticBody2D" parent="."]
+[node name="BasicTurret" type="StaticBody2D" parent="." groups=["Turret"]]
 script = ExtResource("1_qlewl")
 bulletDamage = 1
 
@@ -33,6 +34,16 @@ texture = ExtResource("1_5pk7m")
 
 [node name="Marker2D" type="Marker2D" parent="BasicTurret"]
 position = Vector2(57, 0)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+z_index = 999
+offset_left = -66.0
+offset_top = -45.0
+offset_right = 24.0
+offset_bottom = -36.0
+rotation = 1.5708
+theme = ExtResource("3_8gkxl")
+show_percentage = false
 
 [connection signal="body_entered" from="BasicTurret/Area2D" to="BasicTurret" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="BasicTurret/Area2D" to="BasicTurret" method="_on_area_2d_body_exited"]
